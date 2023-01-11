@@ -14,6 +14,8 @@ import http from 'node:http';
 
 // Cabeçalhos (Requisição/respostas ) => Metadados
 
+// HTTP - Status Code (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
 const users = []
 
 const server = http.createServer((req, res) => {
@@ -29,9 +31,9 @@ const server = http.createServer((req, res) => {
       name: 'John Don',
       email: 'johndoe@example.com',
     })
-    return res.end('Criação de usuarios')
+    return res.writeHead(201).end()
   }
-  return res.end('Teste!')
+  return res.writeHead(404).end('')
 })
 
 server.listen(3333)
